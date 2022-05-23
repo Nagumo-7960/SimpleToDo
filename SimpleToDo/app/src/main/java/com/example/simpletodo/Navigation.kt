@@ -13,8 +13,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.simpletodo.ui.screens.HomeScreen
+import com.example.simpletodo.ui.screens.SettingScreen
 import com.example.ururun.BottomNavItem
+
+@Composable
+fun Navigation(navController: NavHostController) {
+
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") { HomeScreen(navController)}
+        composable("setting") { SettingScreen(navController) }
+    }
+
+
+}
 
 @Composable
 fun BottomNavigationBar(
