@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -31,6 +32,10 @@ fun showList(){
             val isChecked = remember { mutableStateOf(false) }
             Row() {
                 Checkbox(
+                    modifier = Modifier
+                        .padding(
+                          top = 15.dp
+                        ),
                     checked = isChecked.value,
                     onCheckedChange = {
                         isChecked.value = it
@@ -47,4 +52,10 @@ fun showList(){
             Divider()
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewHomeScreen(){
+    showList()
 }
